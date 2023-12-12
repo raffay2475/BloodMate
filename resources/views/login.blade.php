@@ -12,7 +12,7 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-  <section class="login-block">
+  <section class="login-block" style="height: 100%;">
     <div class="container">
       <div class="row" style="height: 600px;">
         <div class="col-md-4 login-sec">
@@ -49,7 +49,7 @@
         <div class="col-md-8 banner-sec pr-0">
           <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="{{asset('assets/images/istockimage1.jpeg')}}" alt="First slide" style="width: 100%; height: 600px;">
+              <img class="d-block img-fluid" src="{{asset('assets/images/blood3.jpg')}}" alt="First slide" style="width: 100%; height: 600px;">
             </div>
         </div>     
       </div>

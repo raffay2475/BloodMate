@@ -82,7 +82,7 @@
             </div>
 
             <p style="margin-bottom: 0px;">Already have an account?
-                <a href="/" style="color: #DE6262;">Login</a>
+                <a href="/login" style="color: #DE6262;">Login</a>
             </p>
             <p>To register your Blood Bank Click Here: 
                 <a href="/bbregister" style="color: #DE6262;">Blood Bank</a>

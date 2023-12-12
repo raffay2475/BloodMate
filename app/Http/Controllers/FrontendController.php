@@ -10,7 +10,10 @@ use DB;
 class FrontendController extends Controller
 {
     public function index(){
-    	return view('login');
+    	return view('home');
+    }
+    public function login(){
+        return view('login');
     }
     public function register(){
     	return view('register');
@@ -27,7 +30,45 @@ class FrontendController extends Controller
     public function temp(){
         return view('temp');
     }
-
+    public function contact(){
+        return view('contact');
+    }
+    public function faq1(){
+        return view('layouts.faq.faq1');
+    }
+    public function faq2(){
+        return view('layouts.faq.faq2');
+    }
+    public function faq3(){
+        return view('layouts.faq.faq3');
+    }
+    public function faq4(){
+        return view('layouts.faq.faq4');
+    }
+    public function faq5(){
+        return view('layouts.faq.faq5');
+    }
+    public function faq6(){
+        return view('layouts.faq.faq6');
+    }
+    public function faq7(){
+        return view('layouts.faq.faq7');
+    }
+    public function faq8(){
+        return view('layouts.faq.faq8');
+    }
+    public function faq9(){
+        return view('layouts.faq.faq9');
+    }
+    public function faq10(){
+        return view('layouts.faq.faq10');
+    }
+    public function faq11(){
+        return view('layouts.faq.faq11');
+    }
+    public function faq12(){
+        return view('layouts.faq.faq12');
+    }
     public function doregister(Request $request){
     	$request->validate([
     		"username"=>"min:8|unique:users",

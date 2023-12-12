@@ -26,7 +26,7 @@
             <div class="form-group">
               <p name="q" style="margin-left: 20px;font-size: 25px;
            font-style: italic; color: #DE6262">9. Have you been outside of pakistan in 3 months before donation?</p>
-              <a href="#" style="color: #DE6262; margin-left: 140px;">More Info</a>
+              <a href="/faq9" style="color: #DE6262; margin-left: 140px;">More Info</a>
             </div>
             <div class="justify-content-center flex-column" style="display: flex; margin-left: 70px;">
               <a href="/showquiz/9/1" class="btn btn-danger" style="width: 200px; margin-bottom:5px;">Yes</a> <a href="/showquiz/9/0" class="btn btn-danger" 
