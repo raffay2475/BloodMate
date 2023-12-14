@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MyUsers;
-use App\Models\DonorQuiz;
-use DB;
+use Illuminate\Support\Facades\DB;
+
 
 class FrontendController extends Controller
 {
@@ -69,6 +69,10 @@ class FrontendController extends Controller
     public function faq12(){
         return view('layouts.faq.faq12');
     }
+    public function findblood(){
+        $myusers = MyUsers::all();
+        return view('findblood', compact('myusers'));
+    }
     public function doregister(Request $request){
     	$request->validate([
     		"username"=>"min:8|unique:users",
@@ -87,7 +91,7 @@ class FrontendController extends Controller
     	$myusers->status=$request->status;
     	$myusers->save();
 
-    	return redirect("/")->with("message", "You successfully register in System");
+    	return view("login")->with("message", "You successfully register in System");
     }
 
     public function dologin(Request $request){
@@ -105,7 +109,7 @@ class FrontendController extends Controller
     
     	}
     	else{
-    		return redirect("/")->with("message", "Wrong Credentials Entered");
+    		return redirect("/login")->with("message", "Wrong Credentials Entered");
     	}
     }
     public function showquiz($q="", $ans=""){

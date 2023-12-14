@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
-
+use App\Http\Controllers\FindBloodController;
+// use Illuminate\Contracts\Session\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,7 @@ use App\Http\Controllers\FrontendController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/temp', [FrontendController::class, 'temp']);
+
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('/login', [FrontendController::class, 'login']);
@@ -36,9 +37,14 @@ Route::get('/faq10', [FrontendController::class, 'faq10']);
 Route::get('/faq11', [FrontendController::class, 'faq11']);
 Route::get('/faq12', [FrontendController::class, 'faq12']);
 Route::get('/quizsubmitted', [FrontendController::class, 'quizsubmitted']);
+Route::get('/showquiz/{q}/{ans}', [FrontendController::class, 'showquiz']);
+Route::get('/findblood', [FrontendController::class, 'findblood']);
+
 
 Route::post('/doregister', [FrontendController::class,'doregister']);
 Route::post('/dologin', [FrontendController::class,'dologin']);
 Route::post('/dodonorquiz', [FrontendController::class,'dodonorquiz']);
-Route::get('/showquiz/{q}/{ans}', [FrontendController::class, 'showquiz']);
 
+// Route::get('findblood' , [FindBloodController::class , 'index'])->name('find-blood');
+// Route::post('findblood' , [FindBloodController::class , 'findblood'])->name('search-blood');
+// Route::get('findblood' , [FindBloodController::class , 'showUsers'])->name('showUsers');

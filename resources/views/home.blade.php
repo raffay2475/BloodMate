@@ -8,7 +8,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase">Blood Consultancy</h5>
-                            <h1 class="display-1 text-white mb-md-4">Don't Just Take, Give Aswell!</h1>
+                            <h1 class="display-1 text-white mb-md-4">Safe Life And Donate Blood</h1>
                             <a href="/login" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Login</a>
                             <a href="/register" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Sign Up</a>
                         </div>

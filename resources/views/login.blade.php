@@ -17,8 +17,8 @@
       <div class="row" style="height: 600px;">
         <div class="col-md-4 login-sec">
           <h2 class="text-center">Login Now</h2>
-          @if(Session::has("message"))
-          <p class="alert alert-success text-center"> {{Session::get("message")}}</p>
+          @if(session()->exists("message"))
+          <p class="alert alert-success text-center"> {{session()->get("message")}}</p>
           @endif
           <form action="/dologin" method="post" class="login-form">
             @csrf
