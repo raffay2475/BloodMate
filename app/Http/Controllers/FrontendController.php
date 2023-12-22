@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MyUsers;
+use App\Models\BloodBank;
 use Illuminate\Support\Facades\DB;
 
 
@@ -27,11 +28,24 @@ class FrontendController extends Controller
     public function quizsubmitted(){
         return view('layouts.quizsubmitted');
     }
-    public function temp(){
-        return view('temp');
+    public function contactcopy(){
+        return view('contactcopy');
     }
     public function contact(){
         return view('contact');
+    }
+    public function userprofiledisplay($id=""){
+        $myusers = MyUsers::where('id', $id)->first();
+        return view('userprofiledisplay', compact('myusers'));
+    }
+    public function stepone(){
+        return view('layouts.donationways.stepone');
+    }
+    public function steptwo(){
+        return view('layouts.donationways.steptwo');
+    }
+    public function faqbasic(){
+        return view('faqbasic');
     }
     public function faq1(){
         return view('layouts.faq.faq1');
@@ -69,6 +83,9 @@ class FrontendController extends Controller
     public function faq12(){
         return view('layouts.faq.faq12');
     }
+    public function bbdashboard(){
+        return view('bbdashboard');
+    }
     public function findblood(){
         $myusers = MyUsers::all();
         return view('findblood', compact('myusers'));
@@ -79,12 +96,14 @@ class FrontendController extends Controller
     		"password"=>"min:8",
     		"rpassword"=>"same:password",
     	]);
+        
     	$myusers = new MyUsers();
     	$myusers->id=null;
     /* values from column name in db */	$myusers->fname=$request->fname;/* values from input name attribute */
     	$myusers->lname=$request->lname;
     	$myusers->email=$request->email;
     	$myusers->city=$request->city;
+        $myusers->blood = $request->bloodgroup;
     	$myusers->username=$request->username;
     	$myusers->password=$request->password;
     	$myusers->phoneno=$request->phno;
@@ -95,6 +114,7 @@ class FrontendController extends Controller
     }
 
     public function dologin(Request $request){
+
     	$myusers = MyUsers::where('username', $request->username)->where('password', $request->password)->first();
     	if($myusers){
     		session()->put("username", $myusers->username);
@@ -103,8 +123,12 @@ class FrontendController extends Controller
                 return redirect("/donorquiz");
     
             }
+            elseif($myusers->status=='BloodBank'){
+
+                return redirect("/bbdashboard")->with("message", "You successfully login");
+            }
             else{
-                return redirect("/")->with("message", "You successfully login");
+                return redirect("/findblood")->with("message", "You successfully login");
             }
     
     	}
@@ -123,4 +147,55 @@ class FrontendController extends Controller
        
         return view("layouts.noteligible");
     }
+    public function dobbregister(Request $request){
+            $request->validate([
+            "bbname"=>"unique:bloodbank",    
+    		"fulname"=>"min:8|unique:bloodbank",
+    		"password"=>"min:8",
+    		"rpassword"=>"same:password",
+    	]);
+        $musers = new MyUsers();
+        $musers->id=null;
+    /* values from column name in db */
+        $musers->fname=$request->bbname;/* values from input name attribute */
+    	$musers->lname=$request->fulname;
+        $musers->blood="";
+        $musers->password = $request->bbpassword;
+    	$musers->email=$request->bbemail;
+    	$musers->city=$request->city;
+    	$musers->username=$request->bbname;
+    	$musers->password=$request->bbpassword;
+    	$musers->phoneno=$request->phno;
+    	$musers->status='BloodBank';
+    	$musers->save();
+
+        $data = DB::select('SELECT id FROM users ORDER BY id DESC LIMIT 1');
+        // return $data;
+    	$myusers = new BloodBank();
+    	$myusers->id=null;
+        $myusers->uid=$data[0]->id;
+    	$myusers->bbname=$request->bbname;
+    	$myusers->bbemail=$request->bbemail;
+    	$myusers->fulname=$request->fulname;
+        $myusers->password = $request->bbpassword;
+    	$myusers->phno=$request->phno;
+    	$myusers->address=$request->address;
+    	$myusers->city=$request->city;
+    	$myusers->state=$request->state;
+        $myusers->zipcode=$request->zipcode;
+        $myusers->country=$request->country;
+        $myusers->daysOn=$request->days;
+        $myusers->blood=$request->blood;
+        $myusers->inventory=$request->inventory;
+        $myusers->certificate=$request->certificate;
+        $myusers->epname=$request->epname;
+        $myusers->ephone=$request->ephone;
+    	$myusers->save();        
+    }
+    public function dosearchdb(Request $request){
+        // return $request->all();
+        $myusers = DB::select('select * from users where city=? and blood=? and status=?',
+        [$request->city,$request->bloodgroup,$request->identity]);        
+         return view('findblood', compact('myusers'));
+    }  
 }

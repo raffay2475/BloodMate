@@ -24,25 +24,29 @@
             <p class="">{{$error}}</p>
           @endforeach
           @endif
-          <form action="/doregister" method="post" class="login-form" style="margin-left: 17px;">
+          <form action="/dobbregister" method="post" class="login-form" style="margin-left: 17px;">
             @csrf
             <div class="form-container d-flex">
                 <div class="form-items">
                   <div class="form-group">
-                  <label for="fname" class="text-uppercase">BloodBank Name</label>
-                  <input type="text" class="form-control" id="fname" name="fname" required>
+                  <label for="bbname" class="text-uppercase">BloodBank Name</label>
+                  <input type="text" class="form-control" id="bbname" name="bbname" required>
                 </div>
                 <div class="form-group">
-                  <label for="lname" class="text-uppercase">Email</label>
-                  <input type="text" class="form-control" id="lname" name="lname" required>
+                  <label for="bbemail" class="text-uppercase">Email</label>
+                  <input type="text" class="form-control" id="bbemail" name="bbemail" required>
                 </div>
               
               </div>
 
               <div class="form-items ml-2">
                 <div class="form-group">
-                  <label for="username" class="text-uppercase">Person's Fullname</label>
-                  <input type="text" class="form-control" id="username" name="username" required>
+                  <label for="fulname" class="text-uppercase">Person's Fullname</label>
+                  <input type="text" class="form-control" id="fulname" name="fulname" required>
+                </div>
+                <div class="form-group">
+                  <label for="bbpassword" class="text-uppercase">Password</label>
+                  <input type="text" class="form-control" id="bbpassword" name="bbpassword" required>
                 </div>
                 
                 <div class="form-group">
@@ -55,30 +59,29 @@
               <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 2</h5>
             <div class="form-items">
                 <div class="form-group">
-                  <label for="fname" class="text-uppercase">Street Address</label>
-                  <input type="text" class="form-control" id="fname" name="fname" required style="width: 86%;">
+                  <label for="address" class="text-uppercase">Street Address</label>
+                  <input type="text" class="form-control" id="address" name="address" required style="width: 86%;">
                 </div>
                 <div class="form-items-division d-flex">
                   <div class="form-group">
-                  <label for="lname" class="text-uppercase">City</label>
-                  <input type="text" class="form-control" id="lname" name="lname" required>
+                  <label for="city" class="text-uppercase">City</label>
+                  <input type="text" class="form-control" id="city" name="city" required>
                 </div>
                 <div class="form-group ml-2">
-                  <label for="lname" class="text-uppercase">State/Province</label>
-                  <input type="text" class="form-control" id="lname" name="lname" required>
+                  <label for="state" class="text-uppercase">State/Province</label>
+                  <input type="text" class="form-control" id="state" name="state" required>
                 </div>  
                 </div>
 
                 <div class="form-items d-flex"> <div class="form-group col-5
-                pl-0 pr-2 " style="width: 270px;"> <label for="lname"
+                pl-0 pr-2 " style="width: 270px;"> <label for="zipcode"
                 class="text-uppercase">ZipCode</label> 
                 <input type="text" class="form-control"
-                id="lname" name="lname" required> </div> 
+                id="zipcode" name="zipcode" required> </div> 
                 <div class="form-group ml-2">
                   <label class="text-uppercase">Country</label>
-                <select style="width: 205px; height: 35px;" class="form-control"> 
-                  <object></object> 
-                </select>
+                  <input type="text" class="form-control"
+                id="country" name="country" >
                 </div> 
               </div>
 
@@ -88,28 +91,28 @@
               <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 3</h5>
         <div class="form-container d-flex">
           <div class="form-items col-5">
-                <div class="form-group">
-                  <label for="username" class="text-uppercase">Operating Time</label>
-                  <input type="text" class="form-control" id="username" name="operatingtime" placeholder="Opening Time" required style="width: 200px;">
-                </div>
+                <!-- <div class="form-group">
+                  <label for="optime" class="text-uppercase">Operating Time</label>
+                  <input type="text" class="form-control" id="optime" name="optime" placeholder="Opening Time" required style="width: 200px;">
+                </div> -->
                 <div class="form-group">
                   <label for="username" class="text-uppercase">Days Open in Week</label>
                   <ul class="options d-flex pl-0" style="list-style: none;">
-                    <li><label><input type="checkbox" name="status" value="Mon">Mon</label></li>
-                    <li><label><input type="checkbox" name="status" value="Tue" style=" margin-top: 4px;">Tue</label></li>
-                    <li><label><input type="checkbox" name="status" value="Wed" style=" margin-top: 4px;">Wed</label></li>
-                    <li><label><input type="checkbox" name="status" value="Thu" style="margin-top: 4px;">Thu</label></li>
-                    <li><label><input type="checkbox" name="status" value="Fri" style=" margin-top: 4px;">Fri</label></li>
-                    <li><label><input type="checkbox" name="status" value="Sat" style=" margin-top: 4px;">Sat</label></li>
-                    <li><label><input type="checkbox" name="status" value="Sun" style=" margin-top: 4px;">Sun</label></li>
+                    <li><label><input type="checkbox" name="days" value="Mon">Mon</label></li>
+                    <li><label><input type="checkbox" name="days" value="Tue" style=" margin-top: 4px;">Tue</label></li>
+                    <li><label><input type="checkbox" name="days" value="Wed" style=" margin-top: 4px;">Wed</label></li>
+                    <li><label><input type="checkbox" name="days" value="Thu" style="margin-top: 4px;">Thu</label></li>
+                    <li><label><input type="checkbox" name="days" value="Fri" style=" margin-top: 4px;">Fri</label></li>
+                    <li><label><input type="checkbox" name="days" value="Sat" style=" margin-top: 4px;">Sat</label></li>
+                    <li><label><input type="checkbox" name="days" value="Sun" style=" margin-top: 4px;">Sun</label></li>
                   </ul>
                 </div>
               </div>
-              <div class="form-items ml-2" style="margin-top: 32px;">
+              <!-- <div class="form-items ml-2" style="margin-top: 32px;">
                 <div class="form-group">
                   <input type="text" class="form-control" id="username" name="closingtime" placeholder="Closing Time" required> 
                 </div>
-              </div>
+              </div> -->
         </div>
         <hr />
         <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 4</h5>
@@ -118,13 +121,13 @@
                 <div class="form-group">
                   <label for="username" class="text-uppercase d-flex ">Types of Blooded Collected</label>
                   <ul class="options d-flex pl-0" style="list-style: none;">
-                    <li><label><input type="checkbox" name="status" value="aminus" style="margin-top: 4px;"> A-</label></li>
-                    <li><label><input type="checkbox" name="status" value="ab" style="margin-top: 4px; margin-left: 4px;"> AB</label></li>
-                    <li><label><input type="checkbox" name="status" value="bplus" style="margin-top: 4px; margin-left: 4px;"> B+</label></li>
-                    <li><label><input type="checkbox" name="status" value="bminus" style="margin-top: 4px; margin-left: 4px;"> B-</label></li>
-                    <li><label><input type="checkbox" name="status" value="oplus" style="margin-top: 4px; margin-left: 4px;"> O+</label></li>
-                    <li><label><input type="checkbox" name="status" value="o-" style="margin-top: 4px; margin-left: 4px;"> O-</label></li>
-                    <li><label><input type="checkbox" name="status" value="aplus" style="margin-top: 4px; margin-left: 4px;"> A+</label></li>
+                    <li><label><input type="checkbox" name="blood" value="A-" style="margin-top: 4px;"> A-</label></li>
+                    <li><label><input type="checkbox" name="blood" value="AB" style="margin-top: 4px; margin-left: 4px;"> AB</label></li>
+                    <li><label><input type="checkbox" name="blood" value="B+" style="margin-top: 4px; margin-left: 4px;"> B+</label></li>
+                    <li><label><input type="checkbox" name="blood" value="B-" style="margin-top: 4px; margin-left: 4px;"> B-</label></li>
+                    <li><label><input type="checkbox" name="blood" value="O+" style="margin-top: 4px; margin-left: 4px;"> O+</label></li>
+                    <li><label><input type="checkbox" name="blood" value="O-" style="margin-top: 4px; margin-left: 4px;"> O-</label></li>
+                    <li><label><input type="checkbox" name="blood" value="A+" style="margin-top: 4px; margin-left: 4px;"> A+</label></li>
                   
                 </ul>
                 </div>

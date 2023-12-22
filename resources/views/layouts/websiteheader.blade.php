@@ -30,6 +30,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets/css/spa.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/spafaq.css')}}" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js">
@@ -42,7 +43,7 @@
         <div class="row gx-0">
             <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-body py-2 pe-3 border-end" href=""><small>FAQs</small></a>
+                    <a class="text-body py-2 pe-3 border-end" href="/faqbasic"><small>FAQs</small></a>
                     <a class="text-body py-2 px-3 border-end" href=""><small>Support</small></a>
                     <a class="text-body py-2 px-3 border-end" href=""><small>Privacy</small></a>
                     <a class="text-body py-2 px-3 border-end" href=""><small>Policy</small></a>
@@ -74,9 +75,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 me-n3">
-                <a href="/home" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About</a>
-                <a href="service.html" class="nav-item nav-link">Service</a>
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/about" class="nav-item nav-link">About</a>
+                <a href="/service" class="nav-item nav-link">Service</a>
                 <a href="/findblood" class="nav-item nav-link">Find Blood</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>

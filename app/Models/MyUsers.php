@@ -19,6 +19,7 @@ class MyUsers extends Model
    		'lname',
    		'email',
    		'city',
+		'blood',
    		'username',
    		'password',
    		'phoneno',

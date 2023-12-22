@@ -24,6 +24,7 @@ Route::get('/donorquiz', [FrontendController::class, 'donorquiz']);
 Route::get('/congratz', [FrontendController::class, 'showquiz']);
 Route::get('/noteligible', [FrontendController::class, 'showquiz']);
 Route::get('/contact', [FrontendController::class, 'contact']);
+Route::get('/faqbasic', [FrontendController::class, 'faqbasic']);
 Route::get('/faq1', [FrontendController::class, 'faq1']);
 Route::get('/faq2', [FrontendController::class, 'faq2']);
 Route::get('/faq3', [FrontendController::class, 'faq3']);
@@ -39,12 +40,14 @@ Route::get('/faq12', [FrontendController::class, 'faq12']);
 Route::get('/quizsubmitted', [FrontendController::class, 'quizsubmitted']);
 Route::get('/showquiz/{q}/{ans}', [FrontendController::class, 'showquiz']);
 Route::get('/findblood', [FrontendController::class, 'findblood']);
-
+Route::get('/stepone', [FrontendController::class, 'stepone']);
+Route::get('/steptwo', [FrontendController::class, 'steptwo']);
+Route::get('/userprofiledisplay/{id}', [FrontendController::class, 'userprofiledisplay']);
+Route::get('/contactcopy', [FrontendController::class, 'contactcopy']);
+Route::get('/bbdashboard', [FrontendController::class, 'bbdashboard']);
 
 Route::post('/doregister', [FrontendController::class,'doregister']);
 Route::post('/dologin', [FrontendController::class,'dologin']);
 Route::post('/dodonorquiz', [FrontendController::class,'dodonorquiz']);
-
-// Route::get('findblood' , [FindBloodController::class , 'index'])->name('find-blood');
-// Route::post('findblood' , [FindBloodController::class , 'findblood'])->name('search-blood');
-// Route::get('findblood' , [FindBloodController::class , 'showUsers'])->name('showUsers');
+Route::post('/dobbregister', [FrontendController::class, 'dobbregister']);
+Route::post('/findblood', [FrontendController::class, 'dosearchdb']);   

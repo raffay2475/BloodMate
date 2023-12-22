@@ -49,6 +49,19 @@
                   <label for="city" class="text-uppercase">City</label>
                   <input type="text" class="form-control" id="city" name="city" required>
                 </div>
+                <div class="form-group">
+                <label for="bloodgroup" class="bloodgroup">Blood Type</label>
+                <select name="bloodgroup" id="bloodgroup">
+                  <option selected>Choose...</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                  <option value="AB">AB</option>
+                </select>
+                </div>
                 
               </div>
               <div class="form-items ml-2">
