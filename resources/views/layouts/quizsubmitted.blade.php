@@ -15,7 +15,7 @@
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style>
-        
+
         h3{
             color: #DE6262;
             }
@@ -24,7 +24,7 @@
         	width: 100px;
         	margin-top: 20px;
         	margin-left: 120px;
-        }    
+        }
     </style>
 </head>
 <body>
@@ -35,16 +35,17 @@
         <div class="col-md-4"></div>
         <div class="col-md-4 login-sec">
           <h2 class="text-center">Eligibility Quiz</h2>
-          
+
             <h3>Congratulations! You are able to donate blood</h3>
 
             <img src="{{asset('assets/images/yes.png')}}">
-          
-          <div class="copy-text"><i class="fa fa-plus"></i> BloodeMate
+            <a class="btn btn-danger" href="/donorDashboard">Welcome!</a>
+
+        <div class="copy-text"><i class="fa fa-plus"></i> BloodeMate
           </div>
         </div>
         <div class="col-md-4"></div>
-            
+
       </div>
     </div>
   </div>

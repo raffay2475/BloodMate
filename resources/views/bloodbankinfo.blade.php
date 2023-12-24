@@ -14,19 +14,19 @@
   <section class="login-block" style="position: relative; height: 100%;">
     <div class="container">
       <div class="row d-flex justify-content-between">
-     
-        <h2 class="text-center col-12 mt-2" style="font-weight: 800; font-size: 30px; color: #DE6262;">Blood Bank Registration</h2>
-        <div classs="inner-content container">
-		        <div class="col-12 login-sec ml-0">
-          <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 1</h5>
-          @if ($errors->any())
-          @foreach ($errors->all() as $error)
-            <p class="">{{$error}}</p>
-          @endforeach
-          @endif
-          <form action="/dobbregister" method="post" class="login-form" style="margin-left: 17px;">
-            @csrf
-            <div class="form-container d-flex">
+
+          <h2 class="text-center col-12 mt-2" style="font-weight: 800; font-size: 30px; color: #DE6262;">Blood Bank Registration</h2>
+          <div class="inner-content container">
+              <div class="col-12 login-sec ml-0">
+                    <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 1</h5>
+                    @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <p class="">{{$error}}</p>
+                    @endforeach
+                    @endif
+                    <form action="/dobbregister" method="post" class="login-form" style="margin-left: 17px;">
+                        @csrf
+                        <div class="form-container d-flex">
                 <div class="form-items">
                   <div class="form-group">
                   <label for="bbname" class="text-uppercase">BloodBank Name</label>
@@ -36,7 +36,7 @@
                   <label for="bbemail" class="text-uppercase">Email</label>
                   <input type="text" class="form-control" id="bbemail" name="bbemail" required>
                 </div>
-              
+
               </div>
 
               <div class="form-items ml-2">
@@ -48,11 +48,11 @@
                   <label for="bbpassword" class="text-uppercase">Password</label>
                   <input type="text" class="form-control" id="bbpassword" name="bbpassword" required>
                 </div>
-                
+
                 <div class="form-group">
                   <label for="phno" class="text-uppercase">Phone No.</label>
                   <input type="text" class="form-control" id="phno" name="phno" required>
-                </div>  
+                </div>
               </div>
             </div>
               <hr />
@@ -70,22 +70,22 @@
                 <div class="form-group ml-2">
                   <label for="state" class="text-uppercase">State/Province</label>
                   <input type="text" class="form-control" id="state" name="state" required>
-                </div>  
+                </div>
                 </div>
 
-                <div class="form-items d-flex"> <div class="form-group col-5
+            <div class="form-items d-flex"> <div class="form-group col-5
                 pl-0 pr-2 " style="width: 270px;"> <label for="zipcode"
-                class="text-uppercase">ZipCode</label> 
+                class="text-uppercase">ZipCode</label>
                 <input type="text" class="form-control"
-                id="zipcode" name="zipcode" required> </div> 
+                id="zipcode" name="zipcode" required> </div>
                 <div class="form-group ml-2">
                   <label class="text-uppercase">Country</label>
                   <input type="text" class="form-control"
                 id="country" name="country" >
-                </div> 
+                </div>
               </div>
 
-              </div>    
+              </div>
               <hr />
 
               <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 3</h5>
@@ -110,7 +110,7 @@
               </div>
               <!-- <div class="form-items ml-2" style="margin-top: 32px;">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="username" name="closingtime" placeholder="Closing Time" required> 
+                  <input type="text" class="form-control" id="username" name="closingtime" placeholder="Closing Time" required>
                 </div>
               </div> -->
         </div>
@@ -128,7 +128,7 @@
                     <li><label><input type="checkbox" name="blood" value="O+" style="margin-top: 4px; margin-left: 4px;"> O+</label></li>
                     <li><label><input type="checkbox" name="blood" value="O-" style="margin-top: 4px; margin-left: 4px;"> O-</label></li>
                     <li><label><input type="checkbox" name="blood" value="A+" style="margin-top: 4px; margin-left: 4px;"> A+</label></li>
-                  
+
                 </ul>
                 </div>
                 <div class="form-group">
@@ -145,7 +145,7 @@
                   <input type="file" name="certificate" class="form-control" style="border: none;">
                 </div>
           </div>
-        </div>  
+        </div>
         <hr />
         <h5 style="font-weight: 500; font-size: 20px; color: #DE6262; text-align:center;">Section 5</h5>
         <div class="form-container d-flex">
@@ -166,7 +166,7 @@
           </div>
         </div>
 
-              
+
             <div class="form-check mr-2">
             <button type="submit" class="btn btn-login">Register</button>
             </div>
@@ -174,14 +174,14 @@
             <p>Already have an account?
                 <a href="/login" style="color: #DE6262;">Login</a>
             </p>
-  
+
           </form>
           <div class="copy-text"><i class="fa fa-plus"></i> BloodeMate
           </div>
         </div>
 </div>
 </section>
-  
+
   <!-- Bootstrap JS and Popper.js scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>

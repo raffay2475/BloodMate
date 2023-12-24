@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\MyUsers;
 use App\Models\BloodBank;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 
 class FrontendController extends Controller
@@ -15,6 +16,10 @@ class FrontendController extends Controller
     }
     public function login(){
         return view('login');
+    }
+    public function logout(){
+        Session()->flush();
+        return redirect('/login');
     }
     public function register(){
     	return view('register');
@@ -34,6 +39,35 @@ class FrontendController extends Controller
     public function contact(){
         return view('contact');
     }
+    public function donorDashboard(){
+        if(session()->exists('isadmin')){
+
+            return view('layouts.dashboard.donordashboard.donorDashboard');
+        }
+        else{
+            return redirect('/login');
+        }
+    }
+    public function donorprofile(){
+        return view('layouts.dashboard.donordashboard.donorprofile');
+    }
+    public function certifyuser(){
+        return view('layouts.dashboard.donordashboard.certifyuser');
+    }
+    public function bbDashboard(){
+        if(session()->exists('isadmin')){
+
+            return view('layouts.dashboard.bloodbankdashboard.bbDashboard');
+        }
+        else{
+            return redirect('/login');
+        }
+    }
+
+    public function bbprofile(){
+        return view('layouts.dashboard.bloodbankdashboard.bbprofile');
+    }
+
     public function userprofiledisplay($id=""){
         $myusers = MyUsers::where('id', $id)->first();
         return view('userprofiledisplay', compact('myusers'));
@@ -43,6 +77,9 @@ class FrontendController extends Controller
     }
     public function steptwo(){
         return view('layouts.donationways.steptwo');
+    }
+    public function stepthree(){
+        return view('layouts.donationways.stepthree');
     }
     public function faqbasic(){
         return view('faqbasic');
@@ -83,9 +120,9 @@ class FrontendController extends Controller
     public function faq12(){
         return view('layouts.faq.faq12');
     }
-    public function bbdashboard(){
-        return view('bbdashboard');
-    }
+    // public function bbdashboard(){
+    //     return view('bbdashboard');
+    // }
     public function findblood(){
         $myusers = MyUsers::all();
         return view('findblood', compact('myusers'));
@@ -96,7 +133,7 @@ class FrontendController extends Controller
     		"password"=>"min:8",
     		"rpassword"=>"same:password",
     	]);
-        
+
     	$myusers = new MyUsers();
     	$myusers->id=null;
     /* values from column name in db */	$myusers->fname=$request->fname;/* values from input name attribute */
@@ -120,17 +157,18 @@ class FrontendController extends Controller
     		session()->put("username", $myusers->username);
             session()->put("uid", $myusers->id);
             if($myusers->status=='Donor'){
+                session()->put("isadmin", true);
                 return redirect("/donorquiz");
-    
+
             }
             elseif($myusers->status=='BloodBank'){
-
+                session()->put("isadmin", true);
                 return redirect("/bbdashboard")->with("message", "You successfully login");
             }
             else{
                 return redirect("/findblood")->with("message", "You successfully login");
             }
-    
+
     	}
     	else{
     		return redirect("/login")->with("message", "Wrong Credentials Entered");
@@ -140,16 +178,16 @@ class FrontendController extends Controller
         //x return $request->all();
         $myquiz = DB::select('select * from donorquiz where id=? and ans=?',[$q,$ans]);
         if($myquiz){
-            $q++; 
-            return view("layouts.".$q);     
+            $q++;
+            return view("layouts.".$q);
         }
-        //return $myquiz;       
-       
+        //return $myquiz;
+
         return view("layouts.noteligible");
     }
     public function dobbregister(Request $request){
             $request->validate([
-            "bbname"=>"unique:bloodbank",    
+            "bbname"=>"unique:bloodbank",
     		"fulname"=>"min:8|unique:bloodbank",
     		"password"=>"min:8",
     		"rpassword"=>"same:password",
@@ -190,12 +228,29 @@ class FrontendController extends Controller
         $myusers->certificate=$request->certificate;
         $myusers->epname=$request->epname;
         $myusers->ephone=$request->ephone;
-    	$myusers->save();        
+    	$myusers->save();
     }
     public function dosearchdb(Request $request){
         // return $request->all();
         $myusers = DB::select('select * from users where city=? and blood=? and status=?',
-        [$request->city,$request->bloodgroup,$request->identity]);        
+        [$request->city,$request->bloodgroup,$request->identity]);
          return view('findblood', compact('myusers'));
-    }  
+    }
+    public function docertify(Request $request){
+    $request->file('certificate')->move(public_path('certificate'), $request->file('certificate')
+    ->getClientOriginalName());
+    $myuser=MyUsers::find($request->id);
+    $myuser->image=$request->file('certificate')->getClientOriginalName();
+    $myuser->verification='Verified';
+    $myuser->save();
+
+    }
+    public function doeditprofile(Request $request){
+        $data = MyUsers::where('id', $request->id)->first();
+        $data->categoryname=$request->categoryname;
+        $data->save();
+        return redirect()->back()->with('message', 'Update Successfully');
+    }
+
 }
+
