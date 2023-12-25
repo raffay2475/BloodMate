@@ -1,4 +1,4 @@
-@include('layouts.dashboard.donordashboard.headerDashboard');
+@include('layouts.dashboard.headerDashboard');
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
@@ -34,6 +34,12 @@
             <a href="/certifyuser">
               <i class="bi bi-patch-check"></i>
               <p>Certified User</p>
+            </a>
+        </li>
+        <li class="">
+            <a href="/profilepicture">
+              <i class="bi bi-patch-check"></i>
+              <p>Profile Picture</p>
             </a>
         </li>
 
@@ -186,19 +192,19 @@
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>Username</label>
-                        <input type="text" class="form-control" placeholder="username">
+                        <input type="text" class="form-control" placeholder="username" name="username">
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
                       <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="password">
+                        <input type="password" class="form-control" placeholder="password" name="password">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" placeholder="email">
+                        <input type="email" class="form-control" placeholder="email" name="email">
                       </div>
                     </div>
                   </div>
@@ -206,13 +212,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Chet">
+                        <input type="text" class="form-control" placeholder="Company" name="fname">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                        <input type="text" class="form-control" placeholder="Last Name" name="lname">
                       </div>
                     </div>
                   </div>
@@ -228,19 +234,19 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" value="Melbourne">
+                        <input type="text" class="form-control" placeholder="City" name="city">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Blood</label>
-                        <input type="text" class="form-control" placeholder="blood">
+                        <input type="text" class="form-control" placeholder="blood" name="blood">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>Phone No.</label>
-                        <input type="number" class="form-control" placeholder="Tel:">
+                        <input type="number" class="form-control" placeholder="Tel:" name="phoneno">
                       </div>
                     </div>
                   </div>
@@ -263,4 +269,4 @@
           </div>
         </div>
       </div>
-@include('layouts.dashboard.donordashboard.footerDashboard');
+@include('layouts.dashboard.footerDashboard');

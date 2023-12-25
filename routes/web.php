@@ -48,10 +48,16 @@ Route::get('/userprofiledisplay/{id}', [FrontendController::class, 'userprofiled
 Route::get('/contactcopy', [FrontendController::class, 'contactcopy']);
 Route::get('/bbdashboard', [FrontendController::class, 'bbdashboard']);
 Route::get('/donorDashboard', [FrontendController::class, 'donorDashboard']);
-Route::get('/donorprofile', [FrontendController::class, 'donorprofile']);
+Route::get('/donorProfile', [FrontendController::class, 'donorprofile']);
 Route::get('/bbDashboard', [FrontendController::class, 'bbDashboard']);
 Route::get('/bbprofile', [FrontendController::class, 'bbprofile']);
 Route::get('/certifyuser', [FrontendController::class, 'certifyuser']);
+Route::get('/adminDashboard', [FrontendController::class, 'adminDashboard']);
+Route::get('/makeCertify', [FrontendController::class, 'makeCertify']);
+Route::get('/doapproved/{id}', [FrontendController::class, 'doapprove']);
+Route::get('/dodisapproved/{id}', [FrontendController::class, 'dodisapprove']);
+Route::get('/profilepicture', [FrontendController::class, 'profilepicture']);
+
 
 Route::post('/doregister', [FrontendController::class,'doregister']);
 Route::post('/dologin', [FrontendController::class,'dologin']);
@@ -60,3 +66,4 @@ Route::post('/dobbregister', [FrontendController::class, 'dobbregister']);
 Route::post('/findblood', [FrontendController::class, 'dosearchdb']);
 Route::post('/doeditprofile', [FrontendController::class, 'doeditprofile']);
 Route::post('/docertify', [FrontendController::class, 'docertify']);
+Route::post('/doprofilepicture', [FrontendController::class, 'doprofilepicture']);

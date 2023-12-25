@@ -105,8 +105,5 @@
 </div>
 @include('layouts.websitefooter')
 
-    <!-- <script type="text/javascript">
-    	new DataTable("#example");
-    </script> -->
 </body>
 </html>

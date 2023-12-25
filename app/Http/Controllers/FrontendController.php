@@ -54,6 +54,18 @@ class FrontendController extends Controller
     public function certifyuser(){
         return view('layouts.dashboard.donordashboard.certifyuser');
     }
+
+    public function adminDashboard(){
+        if(session()->exists('isadmin')){
+
+            return view('layouts.dashboard.admindashboard.adminDashboard');
+        }
+    }
+
+    public function makeCertify(){
+        $myusers = MyUsers::all();
+        return view('layouts.dashboard.admindashboard.makeCertify',compact('myusers'));
+    }
     public function bbDashboard(){
         if(session()->exists('isadmin')){
 
@@ -67,7 +79,10 @@ class FrontendController extends Controller
     public function bbprofile(){
         return view('layouts.dashboard.bloodbankdashboard.bbprofile');
     }
-
+    public function profilepicture(){
+        $myusers = MyUsers::all();
+        return view('layouts.dashboard.donordashboard.profilepicture', compact('myusers'));
+    }
     public function userprofiledisplay($id=""){
         $myusers = MyUsers::where('id', $id)->first();
         return view('userprofiledisplay', compact('myusers'));
@@ -165,6 +180,10 @@ class FrontendController extends Controller
                 session()->put("isadmin", true);
                 return redirect("/bbdashboard")->with("message", "You successfully login");
             }
+            elseif($myusers->status=='Admin'){
+                session()->put("isadmin", true);
+                return redirect("/adminDashboard")->with("message", "You successfully login");
+            }
             else{
                 return redirect("/findblood")->with("message", "You successfully login");
             }
@@ -247,10 +266,39 @@ class FrontendController extends Controller
     }
     public function doeditprofile(Request $request){
         $data = MyUsers::where('id', $request->id)->first();
-        $data->categoryname=$request->categoryname;
+        $data->username=$request->username;
+        $data->password=$request->password;
+        $data->fname=$request->fname;
+        $data->lname=$request->lname;
+        $data->city=$request->city;
+        $data->phoneno=$request->phoneno;
+
         $data->save();
         return redirect()->back()->with('message', 'Update Successfully');
     }
 
+    public function doapprove($value=""){
+// return $value;
+        $myuser=MyUsers::where('id',$value)->first();
+        $myuser->verification='Verified';
+        $myuser->save();
+        return back();
+    }
+    public function dodisapprove($value=""){
+        // return $value;
+        $myuser=MyUsers::where('id',$value)->first();
+        $myuser->verification='Not Verified';
+        $myuser->save();
+        return back();
+    }
+    public function doprofilepicture(Request $request){
+        $request->file('profilepicture')->move(public_path('assets/profilepicture'), $request->file('profilepicture')
+        ->getClientOriginalName());
+        $myuser=MyUsers::find($request->id);
+        $myuser->profilepic=$request->file('profilepicture')->getClientOriginalName();
+
+        $myuser->save();
+        return redirect('/profilepicture');
+        }
 }
 

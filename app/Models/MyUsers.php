@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MyUsers extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'users';
     protected $primarykey = 'id';
    	public $timestamps = false;
@@ -23,7 +23,8 @@ class MyUsers extends Model
    		'username',
    		'password',
    		'phoneno',
-   		'status'
+   		'status',
+        'profilepic'
    	];
 
 

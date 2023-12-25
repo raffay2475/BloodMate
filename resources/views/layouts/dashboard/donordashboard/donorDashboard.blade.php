@@ -1,4 +1,4 @@
-@include('layouts.dashboard.donordashboard.headerDashboard')
+@include('layouts.dashboard.headerDashboard')
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
@@ -25,7 +25,7 @@
             </a>
           </li>
           <li>
-            <a class="nav-link" href="/donorprofile">
+            <a class="nav-link" href="/donorProfile">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
@@ -36,6 +36,12 @@
               <p>Certified User</p>
             </a>
           </li>
+          <li class="">
+            <a href="/profilepicture">
+              <i class="bi bi-patch-check"></i>
+              <p>Profile Picture</p>
+            </a>
+        </li>
         </ul>
       </div>
     </div>
@@ -244,4 +250,4 @@
           </div>
         </div>
       </div>
-@include('layouts.dashboard.donordashboard.footerDashboard');
+@include('layouts.dashboard.footerDashboard');
