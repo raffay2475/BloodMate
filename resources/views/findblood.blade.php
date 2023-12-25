@@ -72,7 +72,11 @@
         </thead>
         <tbody>
         	@foreach ($myusers as $muser)
-        	<tr class="card mb-1" style="background-color: #e6e6e6;border-radius: 5px;">
+            @if($muser->verification=="Verified")
+        	    <tr class="card mb-1" style="background-color: #e6e6e6;border-radius: 5px;">
+            @else
+                <tr class="card mb-1" style="background-color: #fee6e4;border-radius: 5px">
+            @endif
                     <td class="d-flex">
                         <div class="col-10">
 
