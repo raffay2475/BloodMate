@@ -54,6 +54,9 @@ class FrontendController extends Controller
     public function certifyuser(){
         return view('layouts.dashboard.donordashboard.certifyuser');
     }
+    public function certifybb(){
+        return view('layouts.dashboard.bloodbankdashboard.certifybb');
+    }
 
     public function adminDashboard(){
         if(session()->exists('isadmin')){
@@ -67,7 +70,7 @@ class FrontendController extends Controller
         return view('layouts.dashboard.admindashboard.makeCertify',compact('myusers'));
     }
     public function bbDashboard(){
-        if(session()->exists('isadmin')){
+        if(session()->exists('isbb')){
 
             return view('layouts.dashboard.bloodbankdashboard.bbDashboard');
         }
@@ -82,6 +85,10 @@ class FrontendController extends Controller
     public function profilepicture(){
         $myusers = MyUsers::all();
         return view('layouts.dashboard.donordashboard.profilepicture', compact('myusers'));
+    }
+    public function bbprofilepicture(){
+        $myusers = MyUsers::all();
+        return view('layouts.dashboard.bloodbankdashboard.bbprofilepicture', compact('myusers'));
     }
     public function userprofiledisplay($id=""){
         $myusers = MyUsers::where('id', $id)->first();
@@ -162,7 +169,13 @@ class FrontendController extends Controller
     	$myusers->status=$request->status;
     	$myusers->save();
 
-    	return view("login")->with("message", "You successfully register in System");
+        if($request->status == 'Donor'){
+            return view("layouts.1")->with("message", "You successfully register in System");
+        }
+        else{
+            return view("/login")->with("message", "You successfully register in System");
+        }
+
     }
 
     public function dologin(Request $request){
@@ -173,19 +186,20 @@ class FrontendController extends Controller
             session()->put("uid", $myusers->id);
             if($myusers->status=='Donor'){
                 session()->put("isadmin", true);
-                return redirect("/donorquiz");
+                return redirect("/donorDashboard");
 
             }
             elseif($myusers->status=='BloodBank'){
-                session()->put("isadmin", true);
-                return redirect("/bbdashboard")->with("message", "You successfully login");
+                session()->put("isbb", true);
+                return redirect("/bbDashboard")->with("message", "You successfully login");
             }
             elseif($myusers->status=='Admin'){
                 session()->put("isadmin", true);
                 return redirect("/adminDashboard")->with("message", "You successfully login");
             }
             else{
-                return redirect("/findblood")->with("message", "You successfully login");
+                session()->put("isrecipient", true);
+                return redirect("/");
             }
 
     	}
@@ -205,7 +219,10 @@ class FrontendController extends Controller
         return view("layouts.noteligible");
     }
     public function dobbregister(Request $request){
-            $request->validate([
+        $bloods=implode(', ',$request->blood);
+        $days=implode(', ',$request->days);
+
+        $request->validate([
             "bbname"=>"unique:bloodbank",
     		"fulname"=>"min:8|unique:bloodbank",
     		"password"=>"min:8",
@@ -241,13 +258,14 @@ class FrontendController extends Controller
     	$myusers->state=$request->state;
         $myusers->zipcode=$request->zipcode;
         $myusers->country=$request->country;
-        $myusers->daysOn=$request->days;
-        $myusers->blood=$request->blood;
+        $myusers->daysOn=$days;
+        $myusers->blood=$bloods;
         $myusers->inventory=$request->inventory;
         $myusers->certificate=$request->certificate;
         $myusers->epname=$request->epname;
         $myusers->ephone=$request->ephone;
     	$myusers->save();
+
     }
     public function dosearchdb(Request $request){
         // return $request->all();
@@ -263,8 +281,33 @@ class FrontendController extends Controller
     $myuser->verification='Verified';
     $myuser->save();
 
+    return redirect()->back()->with("message","You File Uploaded");
+
     }
+    public function docertifybb(Request $request){
+        $request->file('certificate')->move(public_path('certificate'), $request->file('certificate')
+        ->getClientOriginalName());
+        $myuser=MyUsers::find($request->id);
+        $myuser->image=$request->file('certificate')->getClientOriginalName();
+        $myuser->verification='Verified';
+        $myuser->save();
+
+        return redirect()->back()->with("message","You File Uploaded");
+
+        }
     public function doeditprofile(Request $request){
+        $data = MyUsers::where('id', $request->id)->first();
+        $data->username=$request->username;
+        $data->password=$request->password;
+        $data->fname=$request->fname;
+        $data->lname=$request->lname;
+        $data->city=$request->city;
+        $data->phoneno=$request->phoneno;
+
+        $data->save();
+        return redirect()->back()->with('message', 'Update Successfully');
+    }
+    public function doeditbbprofile(Request $request){
         $data = MyUsers::where('id', $request->id)->first();
         $data->username=$request->username;
         $data->password=$request->password;
@@ -299,6 +342,22 @@ class FrontendController extends Controller
 
         $myuser->save();
         return redirect('/profilepicture');
+        }
+        public function dobbprofilepicture(Request $request){
+            $request->file('profilepicture')->move(public_path('assets/profilepicture'), $request->file('profilepicture')
+            ->getClientOriginalName());
+            $myuser=MyUsers::find($request->id);
+            $myuser->profilepic=$request->file('profilepicture')->getClientOriginalName();
+
+            $myuser->save();
+            return redirect('/bbprofilepicture');
+            }
+        public function becomedonor(Request $request){
+            $myusers=MyUsers::find(session()->get('uid'));
+            $myusers->status="Donor";
+            $myusers->save();
+            session()->flush();
+            return redirect("/login")->with("message", "You Are Donor Now Please Login!");
         }
 }
 

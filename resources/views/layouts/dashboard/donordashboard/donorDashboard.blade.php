@@ -68,6 +68,11 @@
 
             <ul class="navbar-nav">
             <li class="nav-item">
+                <a class="btn btn-secondary" href="/">
+                    Home
+                </a>
+              </li>
+            <li class="nav-item">
                 <a class="btn btn-secondary" href="/logout">
                     Logout
                 </a>

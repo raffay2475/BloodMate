@@ -16,7 +16,8 @@ use App\Http\Controllers\FindBloodController;
 */
 
 
-Route::get('/', [FrontendController::class, 'index']);
+Route::get('/',
+[FrontendController::class, 'index']);
 Route::get('/login', [FrontendController::class, 'login']);
 Route::get('/logout', [FrontendController   ::class, 'logout']);
 Route::get('/register', [FrontendController::class, 'register']);
@@ -46,17 +47,20 @@ Route::get('/steptwo', [FrontendController::class, 'steptwo']);
 Route::get('/stepthree', [FrontendController::class, 'stepthree']);
 Route::get('/userprofiledisplay/{id}', [FrontendController::class, 'userprofiledisplay']);
 Route::get('/contactcopy', [FrontendController::class, 'contactcopy']);
-Route::get('/bbdashboard', [FrontendController::class, 'bbdashboard']);
+// Route::get('/bbdashboard', [FrontendController::class, 'bbdashboard']);
 Route::get('/donorDashboard', [FrontendController::class, 'donorDashboard']);
 Route::get('/donorProfile', [FrontendController::class, 'donorprofile']);
 Route::get('/bbDashboard', [FrontendController::class, 'bbDashboard']);
 Route::get('/bbprofile', [FrontendController::class, 'bbprofile']);
 Route::get('/certifyuser', [FrontendController::class, 'certifyuser']);
+Route::get('/certifybb', [FrontendController::class, 'certifybb']);
 Route::get('/adminDashboard', [FrontendController::class, 'adminDashboard']);
 Route::get('/makeCertify', [FrontendController::class, 'makeCertify']);
 Route::get('/doapproved/{id}', [FrontendController::class, 'doapprove']);
 Route::get('/dodisapproved/{id}', [FrontendController::class, 'dodisapprove']);
 Route::get('/profilepicture', [FrontendController::class, 'profilepicture']);
+Route::get('/bbprofilepicture', [FrontendController::class, 'bbprofilepicture']);
+Route::get('/becomedonor', [FrontendController::class, 'becomedonor']);
 
 
 Route::post('/doregister', [FrontendController::class,'doregister']);
@@ -65,5 +69,8 @@ Route::post('/dodonorquiz', [FrontendController::class,'dodonorquiz']);
 Route::post('/dobbregister', [FrontendController::class, 'dobbregister']);
 Route::post('/findblood', [FrontendController::class, 'dosearchdb']);
 Route::post('/doeditprofile', [FrontendController::class, 'doeditprofile']);
+Route::post('/doeditbbprofile', [FrontendController::class, 'doeditbbprofile']);
 Route::post('/docertify', [FrontendController::class, 'docertify']);
+Route::post('/docertifybb', [FrontendController::class, 'docertifybb']);
 Route::post('/doprofilepicture', [FrontendController::class, 'doprofilepicture']);
+Route::post('/dobbprofilepicture', [FrontendController::class, 'dobbprofilepicture']);

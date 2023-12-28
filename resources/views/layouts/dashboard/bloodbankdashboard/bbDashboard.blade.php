@@ -1,9 +1,87 @@
-@include('layouts.dashboard.bloodbankdashboard.headerDashboard');
-<body>
-  <div class="wrapper">
-  @include('layouts.dashboard.bloodbankdashboard.bbSidebar');
+@include('layouts.dashboard.headerDashboard')
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="{{asset('dashboardAssets/img/logo-small.png')}}">
+          </div>
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+                User
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="active">
+            <a href="/bbDashboard">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="/bbprofile">
+              <i class="nc-icon nc-single-02"></i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="/certifybb">
+              <i class="bi bi-patch-check"></i>
+              <p>Certified User</p>
+            </a>
+          </li>
+          <li class="">
+            <a href="/bbprofilepicture">
+              <i class="bi bi-patch-check"></i>
+              <p>Profile Picture</p>
+            </a>
+        </li>
+        </ul>
+      </div>
+    </div>
     <div class="main-panel">
-    @include('layouts.dashboard.bloodbankdashboard.bbnav');
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">Blood Bank</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+            <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="btn btn-secondary" href="/">
+                    Home
+                </a>
+              </li>
+            <li class="nav-item">
+                <a class="btn btn-secondary" href="/logout">
+                    Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
       <div class="content">
         <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
@@ -177,5 +255,4 @@
           </div>
         </div>
       </div>
-
-@include('layouts.dashboard.bloodbankdashboard.footerDashboard');
+@include('layouts.dashboard.footerDashboard');

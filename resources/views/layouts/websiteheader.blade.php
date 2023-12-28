@@ -14,7 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -75,10 +75,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 me-n3">
-                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/" class="nav-item nav-link">Home</a>
                 <a href="/about" class="nav-item nav-link">About</a>
                 <a href="/service" class="nav-item nav-link">Service</a>
                 <a href="/findblood" class="nav-item nav-link">Find Blood</a>
+                @if(Session::has("isrecipient"))
+                <a href="/becomedonor" class="nav-item nav-link">Become Donor</a>
+                @elseif(Session::has("isadmin"))
+                <a href="/donorDashboard" class="nav-item nav-link">Dashboard</a>
+                @elseif(Session::has("isbb"))
+                <a href="/bbDashboard" class="nav-item nav-link">Dashboard</a>
+                    @endif
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu m-0">
@@ -90,7 +97,7 @@
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                     </div>
                 </div>
-                <a href="/contact" class="nav-item nav-link">Contact</a>
+                <a href="/login" class="nav-item nav-link">Logout</a>
             </div>
         </div>
     </nav>

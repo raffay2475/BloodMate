@@ -30,7 +30,7 @@
               <label for="password" class="text-uppercase">Password</label>
               <input type="password" class="form-control" id="password" name="password" required>
             </div>
-  
+
             <div class="form-check">
             <label class="form-check-label">
               <input type="checkbox" class="form-check-input">
@@ -41,8 +41,11 @@
             <p>Do you have an  account?
                 <a href="/register" style="color: #DE6262;">Register</a>
             </p>
-  
+
           </form>
+            <!-- @if(Session::has("isrecipient"))
+            <a href="/" class="btn btn-danger">Homepage</a>
+            @endif -->
           <div class="copy-text"><i class="fa fa-plus"></i> BloodeMate
           </div>
         </div>
@@ -51,12 +54,12 @@
             <div class="carousel-item active">
               <img class="d-block img-fluid" src="{{asset('assets/images/blood3.jpg')}}" alt="First slide" style="width: 100%; height: 600px;">
             </div>
-        </div>     
+        </div>
       </div>
     </div>
   </div>
 </section>
-  
+
   <!-- Bootstrap JS and Popper.js scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js"></script>

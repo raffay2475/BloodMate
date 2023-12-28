@@ -38,8 +38,8 @@
 
             <h3>Congratulations! You are able to donate blood</h3>
 
-            <img src="{{asset('assets/images/yes.png')}}">
-            <a class="btn btn-danger" href="/donorDashboard">Welcome!</a>
+            <img src="{{asset('assets/images/yes.png')}}"><br>
+            <a class="btn btn-danger" href="/login">Welcome!</a>
 
         <div class="copy-text"><i class="fa fa-plus"></i> BloodeMate
           </div>

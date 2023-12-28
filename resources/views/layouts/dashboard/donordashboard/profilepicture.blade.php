@@ -30,13 +30,13 @@
               <p>User Profile</p>
             </a>
         </li>
-        <li class="active">
+        <li class="">
             <a href="/certifyuser">
               <i class="bi bi-patch-check"></i>
               <p>Certified User</p>
             </a>
         </li>
-        <li class="">
+        <li class="active">
             <a href="/profilepicture">
               <i class="bi bi-patch-check"></i>
               <p>Profile Picture</p>
@@ -68,7 +68,11 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
             <ul class="navbar-nav">
-
+              <li class="nav-item">
+                <a class="btn btn-secondary" href="/">
+                    Home
+                </a>
+              </li>
               <li class="nav-item">
                 <a class="btn btn-secondary" href="/logout">
                     Logout
@@ -128,7 +132,7 @@
           <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Edit Profile</h5>
+                <h5 class="card-title">Edit Profile Picture</h5>
               </div>
               <div class="card-body">
                 <form action="/doprofilepicture" method="post" enctype="multipart/form-data">

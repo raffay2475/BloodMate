@@ -9,8 +9,16 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase">Blood Consultancy</h5>
                             <h1 class="display-1 text-white mb-md-4">Safe Life And Donate Blood</h1>
+                            @if(Session::has("isrecipient"))
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill"></a>
+                            @elseif(Session::has("isadmin"))
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill"></a>
+                            @elseif(Session::has("isbb"))
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill"></a>
+                            @else
                             <a href="/login" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Login</a>
                             <a href="/register" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Sign Up</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -20,8 +28,16 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase">Blood Consultancy</h5>
                             <h1 class="display-1 text-white mb-md-4">Don't Just Take, Give Aswell!</h1>
+                            @if(Session::has("isrecipient"))
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill"></a>
+                            @elseif(Session::has("isadmin"))
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill"></a>
+                            @elseif(Session::has("isbb"))
+                            <a href="#" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill"></a>
+                            @else
                             <a href="/login" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Login</a>
                             <a href="/register" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Sign Up</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -84,7 +100,7 @@
         </div>
     </div>
     <!-- About End -->
-    
+
 
     <!-- Services Start -->
     <div class="container-fluid pt-6 px-5">
@@ -248,7 +264,7 @@
                                 <select class="form-select" id="floatingSelect" aria-label="Financial Consultancy">
                                     <option selected>BloodBank Consultancy</option>
                                     <option value="1">BloodDonor Consultancy</option>
-                                    
+
                                 </select>
                                 <label for="floatingSelect">Select A Service</label>
                             </div>
@@ -419,7 +435,7 @@
         </div>
     </div>
     <!-- Blog End -->
-    
+
 @include('layouts.websitefooter')
 </body>
 

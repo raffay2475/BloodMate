@@ -71,20 +71,20 @@
 
         </thead>
         <tbody>
-        	@foreach ($myusers as $muser)
+            @foreach ($myusers as $muser)
             @if($muser->verification=="Verified")
-        	    <tr class="card mb-1" style="background-color: #e6e6e6;border-radius: 5px;">
-            @else
+            <tr class="card mb-1" style="background-color: #e6e6e6;border-radius: 5px;">
+                @else
                 <tr class="card mb-1" style="background-color: #fee6e4;border-radius: 5px">
-            @endif
+                    @endif
+
                     <td class="d-flex">
                         <div class="col-10">
 
                             <b>{{$muser->fname}} {{$muser->lname}}</b><br/><small>Identity: {{$muser->status}}</small><br /><small>City: {{$muser->city}}</small><br />
                             <small>Blood Group: {{$muser->blood}}</small><br/>
                             @if($muser->verification=="Verified")
-                                <small style="font-style: italic; color:teal;"><b>{{$muser->verification}}<i class="bi bi-check2-circle"></i></b></small>
-
+                            <small style="font-style: italic; color:teal;"><b>{{$muser->verification}}<i class="bi bi-check2-circle"></i></b></small>
                             @else
                                 <small style="font-style: italic; color:red;"><b>{{$muser->verification}}<i class="bi bi-x"></i></b></small>
 
@@ -92,13 +92,12 @@
                         </div>
                         <div class="col-2">
                             <a href="/userprofiledisplay/{{$muser->id}}" class="btn btn-primary" style="color: white;"><i class="bi bi-person" style="color: white;"></i>View Profile</a>
+                            <a href="#" class="btn btn-primary mt-2" style="color: white;">Request Blood</a>
                         </div>
 
                     </td>
-                    <!-- <td style="float:right;">
-                        <button><a href="/userprofiledisplay/{{$muser->id}}" class="btn btn-primary" style="color: white;"><i class="bi bi-person" style="color: white;"></i>View Profile</a></button>
-                    </td> -->
-            </tr>
+
+                </tr>
             @endforeach
         </tbody>
     </table>

@@ -84,7 +84,8 @@
         <tr>
             <td>{{$muser->username}}</td>
             <td>{{$muser->status}}</td>
-            <td>{{$muser->image}}</td>
+            <!-- <td>{{$muser->image}}</td> -->
+            <td><img src="{{asset('certificate')}}/{{$muser->image}}" style="height:50px;width:50px" id="myImg"/></td>
         @if($muser->verification=='Verified')
                     <td colspan="2"><a href="/dodisapproved/{{$muser->id}}" class="btn btn-danger">Disapprove</a></td>
         @else
@@ -92,6 +93,12 @@
         @endif
         </tr>
     @endforeach
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+            </div>
 
     </tbody>
 </table>
@@ -99,4 +106,5 @@
 
         </div>
       </div>
+
 @include('layouts.dashboard.footerDashboard');

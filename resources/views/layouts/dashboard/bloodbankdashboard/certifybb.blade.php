@@ -19,25 +19,25 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
-            <a href="/donorDashboard">
+            <a href="/bbDashboard">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="active">
-            <a href="/userprofile">
+          <li class="">
+            <a href="/bbprofile">
               <i class="nc-icon nc-single-02"></i>
               <p>User Profile</p>
             </a>
         </li>
-        <li class="">
-            <a href="/certifyuser">
+        <li class="active">
+            <a href="/certifybb">
               <i class="bi bi-patch-check"></i>
               <p>Certified User</p>
             </a>
         </li>
         <li class="">
-            <a href="/profilepicture">
+            <a href="/bbprofilepicture">
               <i class="bi bi-patch-check"></i>
               <p>Profile Picture</p>
             </a>
@@ -58,7 +58,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:;">Donor</a>
+            <a class="navbar-brand" href="javascript:;">Blood Bank</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -68,7 +68,6 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
 
             <ul class="navbar-nav">
-
               <li class="nav-item">
                 <a class="btn btn-secondary" href="/">
                     Home
@@ -107,27 +106,12 @@
                   I wanna bag it up"
                 </p>
               </div>
-              <div class="card-footer">
-                <hr>
-                <div class="button-container">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-6 col-6 ml-auto">
-                      <h5>12<br><small>Files</small></h5>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-6 ml-auto mr-auto">
-                      <h5>2GB<br><small>Used</small></h5>
-                    </div>
-                    <div class="col-lg-3 mr-auto">
-                      <h5>24,6$<br><small>Spent</small></h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Total Donations</h4>
               </div>
+
             </div>
           </div>
           <div class="col-md-8">
@@ -136,79 +120,18 @@
                 <h5 class="card-title">Edit Profile</h5>
               </div>
               <div class="card-body">
-                <form action="/doeditprofile" method="post">
+                <form action="/docertifybb" method="post" enctype="multipart/form-data">
                     @csrf
-                <input type="hidden" value="{{Session::get('uid')}}" name="id"/>
                   <div class="row">
-                    <div class="col-md-5 pr-1">
-                      <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" class="form-control" placeholder="username" name="username">
-                      </div>
-                    </div>
-                    <div class="col-md-3 px-1">
-                      <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" placeholder="password" name="password">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" placeholder="email" name="email">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 pr-1">
-                      <div class="form-group">
-                        <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" name="fname">
-                      </div>
-                    </div>
-                    <div class="col-md-6 pl-1">
-                      <div class="form-group">
-                        <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" name="lname">
-                      </div>
-                    </div>
-                  </div>
-                  <!-- <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Address</label>
-                        <input type="text" class="form-control" placeholder="Home Address" value="Melbourne, Australia">
-                      </div>
-                    </div>
-                  </div> -->
-                  <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label>City</label>
-                        <input type="text" class="form-control" placeholder="City" name="city">
-                      </div>
-                    </div>
-                    <div class="col-md-4 px-1">
-                      <div class="form-group">
-                        <label>Blood</label>
-                        <input type="text" class="form-control" placeholder="blood" name="blood">
-                      </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Phone No.</label>
-                        <input type="number" class="form-control" placeholder="Tel:" name="phoneno">
+                        <input type="hidden" name="id" value="{{Session::get('uid')}}"/>
+<p class="text-danger">Note! Kindly upload reports certified by Shaukat Khanum and Chugtai Labs Only</p>
+                        <label>Certification(If any):<br><span style="background-color: grey;color: black;border:1px solid black;border-radius:2px;padding:2px;margin-top:5px;">Choose file...</span></label>
+                        <input type="file" name="certificate" />
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group">
-                        <label>About Me</label>
-                        <textarea class="form-control textarea">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
-                      </div>
-                    </div>
-                  </div> -->
                   <div class="row">
                     <div class="update ml-auto mr-auto">
                       <button type="submit" class="btn btn-primary btn-round">Update Profile</button>

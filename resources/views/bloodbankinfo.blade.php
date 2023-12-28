@@ -46,7 +46,7 @@
                 </div>
                 <div class="form-group">
                   <label for="bbpassword" class="text-uppercase">Password</label>
-                  <input type="text" class="form-control" id="bbpassword" name="bbpassword" required>
+                  <input type="password" class="form-control" id="bbpassword" name="bbpassword" required>
                 </div>
 
                 <div class="form-group">
@@ -98,13 +98,13 @@
                 <div class="form-group">
                   <label for="username" class="text-uppercase">Days Open in Week</label>
                   <ul class="options d-flex pl-0" style="list-style: none;">
-                    <li><label><input type="checkbox" name="days" value="Mon">Mon</label></li>
-                    <li><label><input type="checkbox" name="days" value="Tue" style=" margin-top: 4px;">Tue</label></li>
-                    <li><label><input type="checkbox" name="days" value="Wed" style=" margin-top: 4px;">Wed</label></li>
-                    <li><label><input type="checkbox" name="days" value="Thu" style="margin-top: 4px;">Thu</label></li>
-                    <li><label><input type="checkbox" name="days" value="Fri" style=" margin-top: 4px;">Fri</label></li>
-                    <li><label><input type="checkbox" name="days" value="Sat" style=" margin-top: 4px;">Sat</label></li>
-                    <li><label><input type="checkbox" name="days" value="Sun" style=" margin-top: 4px;">Sun</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Mon">Mon</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Tue" style=" margin-top: 4px;">Tue</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Wed" style=" margin-top: 4px;">Wed</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Thu" style="margin-top: 4px;">Thu</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Fri" style=" margin-top: 4px;">Fri</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Sat" style=" margin-top: 4px;">Sat</label></li>
+                    <li><label><input type="checkbox" name="days[]" value="Sun" style=" margin-top: 4px;">Sun</label></li>
                   </ul>
                 </div>
               </div>
@@ -121,13 +121,13 @@
                 <div class="form-group">
                   <label for="username" class="text-uppercase d-flex ">Types of Blooded Collected</label>
                   <ul class="options d-flex pl-0" style="list-style: none;">
-                    <li><label><input type="checkbox" name="blood" value="A-" style="margin-top: 4px;"> A-</label></li>
-                    <li><label><input type="checkbox" name="blood" value="AB" style="margin-top: 4px; margin-left: 4px;"> AB</label></li>
-                    <li><label><input type="checkbox" name="blood" value="B+" style="margin-top: 4px; margin-left: 4px;"> B+</label></li>
-                    <li><label><input type="checkbox" name="blood" value="B-" style="margin-top: 4px; margin-left: 4px;"> B-</label></li>
-                    <li><label><input type="checkbox" name="blood" value="O+" style="margin-top: 4px; margin-left: 4px;"> O+</label></li>
-                    <li><label><input type="checkbox" name="blood" value="O-" style="margin-top: 4px; margin-left: 4px;"> O-</label></li>
-                    <li><label><input type="checkbox" name="blood" value="A+" style="margin-top: 4px; margin-left: 4px;"> A+</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="A-" style="margin-top: 4px;"> A-</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="AB" style="margin-top: 4px; margin-left: 4px;"> AB</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="B+" style="margin-top: 4px; margin-left: 4px;"> B+</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="B-" style="margin-top: 4px; margin-left: 4px;"> B-</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="O+" style="margin-top: 4px; margin-left: 4px;"> O+</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="O-" style="margin-top: 4px; margin-left: 4px;"> O-</label></li>
+                    <li><label><input type="checkbox" name="blood[]" value="A+" style="margin-top: 4px; margin-left: 4px;"> A+</label></li>
 
                 </ul>
                 </div>
